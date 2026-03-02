@@ -63,7 +63,9 @@ zahyaxss uninstall
 
 ---
 
-### Configuration (config.lua)
+### Configuration (checker.lua)
+
+Edit the `Config` table at the top of `checker.lua`:
 
 | Setting | Description |
 |---------|-------------|
@@ -142,7 +144,9 @@ zahyaxss uninstall
 
 ---
 
-### الإعدادات (config.lua)
+### الإعدادات (checker.lua)
+
+عدّل جدول `Config` في بداية الملف:
 
 | الإعداد | الوصف |
 |--------|-------|

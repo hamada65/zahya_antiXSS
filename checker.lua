@@ -1,7 +1,17 @@
-local ALLOWED_TAGS = AntiXSSConfig.allowed_tags
-local SKIPPED_SCRIPTS = AntiXSSConfig.skipped_scripts
-local DEBUG = AntiXSSConfig.debug
-local _GetCurrentResourceName = GetCurrentResourceName
+local Config = {
+    allowed_tags = {
+        font = true, i = true, b = true, u = true, strong = true,
+        span = true, div = true, p = true, br = true, img = true,
+    },
+    skipped_scripts = {
+        -- ["my_trusted_ui"] = true,
+    },
+    debug = false,
+}
+
+local ALLOWED_TAGS = Config.allowed_tags
+local SKIPPED_SCRIPTS = Config.skipped_scripts
+local DEBUG = Config.debug
 
 local function isSkipped()
     local name = _GetCurrentResourceName()

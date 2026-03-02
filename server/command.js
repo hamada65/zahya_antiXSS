@@ -6,7 +6,6 @@
 const fs = require('fs');
 const path = require('path');
 
-const CONFIG_ENTRY = "@zahya_antiXSS/config.lua";
 const CHECKER_ENTRY = '@zahya_antiXSS/checker.lua';
 const ZAHYA_RESOURCE = 'zahya_antiXSS';
 
@@ -54,7 +53,7 @@ function hasChecker(content) {
 }
 
 function addSharedScript(content) {
-  return "shared_script '@zahya_antiXSS/config.lua'\nshared_script '@zahya_antiXSS/checker.lua'\n" + content;
+  return "shared_script '@zahya_antiXSS/checker.lua'\n" + content;
 }
 
 function removeSharedScript(content) {

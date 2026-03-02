@@ -1,0 +1,5 @@
+{
+  "name": "zahya-antixss",
+  "version": "1.0.0",
+  "description": "Zahya Anti-XSS - overrides SendNUIMessage with sanitizer"
+}

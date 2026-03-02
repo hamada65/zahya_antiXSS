@@ -13,6 +13,7 @@ local ALLOWED_TAGS = Config.allowed_tags
 local SKIPPED_SCRIPTS = Config.skipped_scripts
 local DEBUG = Config.debug
 
+local _GetCurrentResourceName = GetCurrentResourceName
 local function isSkipped()
     local name = _GetCurrentResourceName()
     return SKIPPED_SCRIPTS[name]

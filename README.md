@@ -63,15 +63,24 @@ zahyaxss uninstall
 
 ---
 
-### Configuration (checker.lua)
+### Configuration
 
-Edit the `Config` table at the top of `checker.lua`:
+**checker.lua** — Edit the `Config` table at the top:
 
 | Setting | Description |
 |---------|-------------|
 | `allowed_tags` | Whitelist of allowed HTML tags (font, span, div, ...) |
-| `skipped_scripts` | Resources that skip sanitization |
+| `skipped_scripts` | Resources that skip sanitization at runtime |
 | `debug` | When `true`, prints blocked content to F8 console |
+
+**server/command.js** — Install bypass (resources that never get the checker installed). Edit `BYPASS_RESOURCES`:
+
+```javascript
+const BYPASS_RESOURCES = [
+  'my_trusted_ui',
+  'another_resource',
+];
+```
 
 ---
 
@@ -144,15 +153,24 @@ zahyaxss uninstall
 
 ---
 
-### الإعدادات (checker.lua)
+### الإعدادات
 
-عدّل جدول `Config` في بداية الملف:
+**checker.lua** — عدّل جدول `Config` في بداية الملف:
 
 | الإعداد | الوصف |
 |--------|-------|
 | `allowed_tags` | قائمة التاق المسموح بها (font, span, div, ...) |
-| `skipped_scripts` | السكربتات المستثناة من التعقيم |
+| `skipped_scripts` | السكربتات المستثناة من التعقيم أثناء التشغيل |
 | `debug` | عند `true` يطبع المحتوى الخطير في كونسول F8 |
+
+**server/command.js** — استثناء التثبيت (سكربتات لا تُثبَّت عليها الحماية أبداً). عدّل `BYPASS_RESOURCES`:
+
+```javascript
+const BYPASS_RESOURCES = [
+  'my_trusted_ui',
+  'another_resource',
+];
+```
 
 ---
 

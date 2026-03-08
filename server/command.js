@@ -9,6 +9,17 @@ const path = require('path');
 const CHECKER_ENTRY = '@zahya_antiXSS/checker.lua';
 const ZAHYA_RESOURCE = 'zahya_antiXSS';
 
+// Resources to skip during install (no checker added)
+const BYPASS_RESOURCES = [
+  // 'my_trusted_ui',
+];
+
+function isBypassResource(manifestPath, bypassList) {
+  const dir = path.dirname(manifestPath);
+  const dirName = path.basename(dir);
+  return bypassList.indexOf(dirName) !== -1;
+}
+
 const C = {
   red: '^1',
   green: '^2',
@@ -70,6 +81,7 @@ function runInstall(serverRoot, uninstall) {
     return { success: false, error: 'resources/ directory not found at ' + resourcesPath };
   }
 
+  const bypassList = BYPASS_RESOURCES;
   const manifests = findManifests(resourcesPath);
   let updated = 0;
   let skipped = 0;
@@ -77,6 +89,10 @@ function runInstall(serverRoot, uninstall) {
 
   for (const manifestPath of manifests) {
     if (isZahyaResource(manifestPath)) {
+      skipped++;
+      continue;
+    }
+    if (!uninstall && isBypassResource(manifestPath, bypassList)) {
       skipped++;
       continue;
     }
